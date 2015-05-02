@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ricardo Molina</title>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Merriweather:400italic,400,700' rel='stylesheet' type='text/css'>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/compose.css') }}">
+	{{ pagedown.include_pagedown() }}
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body id="home">
+
+	<div class="page-wrap">
+
+		{% include "header.html" %}
+
+		<div class="content col-md-offset-2 col-md-8">
+
+	    <div>
+	    <h1 class="article-title">{{ 'Compose a post' }}</h1>
+		</div>
+		{% include 'flash.html' %}
+	    <div>
+	        <form class="form-horizontal" action="" method="post" name="edit">
+	            {{ form.hidden_tag() }}
+	            <div class="control-group{% if form.title.errors %} error{% endif %}">
+	                <label class="control-label" for="title">{{ 'Title:' }}</label>
+	                <div class="controls">
+	                    {{ form.title(maxlength=64, class="col-md-12") }}
+	                    {% for error in form.title.errors %}
+	                        <span class="help-inline">[{{ error }}]</span><br>
+	                    {% endfor %}
+	                </div>
+	            </div>
+	            <div class="control-group{% if form.intro.errors %} error{% endif %}">
+	                <label class="control-label" for="intro">{{ 'Introduction:' }}</label>
+	                <div class="controls">
+	                    {{ form.intro(maxlength=64, class="col-md-12") }}
+	                    {% for error in form.intro.errors %}
+	                        <span class="help-inline">[{{ error }}]</span><br>
+	                    {% endfor %}
+	                </div>
+	            </div>
+	            <div class="control-group{% if form.body.errors %} error{% endif %}">
+	                <label class="control-label" for="body">{{ 'Body:' }}</label>
+	                <div class="controls">
+	                    {{ form.body(rows=25, class="col-md-12") }}
+	                    {% for error in form.body.errors %}
+	                        <span class="help-inline">[{{ error }}]</span><br>
+	                    {% endfor %}
+	                </div>
+	            </div>
+	            <div class="control-group">
+	                <div class="controls">
+	                    <input class="btn btn-primary" type="submit" value="Publish">
+	                    {% if post.id %}
+	                    <a href="{{url_for('delete', post_id=post.id)}}"><input class="btn btn-primary btn-danger" value="Delete"></a>
+	                    {% endif %}
+	                </div>
+	            </div>
+	        </form>
+	    </div>
+
+
+		</div>
+	</div>
+
+
+	{% include "footer.html" %}
+
+</body>
+</html>

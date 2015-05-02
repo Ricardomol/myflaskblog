@@ -1,0 +1,56 @@
+body {
+	font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a:link {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: none !important;
+	color: #058ebd !important;
+}
+
+.header{
+	border-bottom: solid 1px #999999;
+}
+
+.navigation{
+	float:right;
+}
+
+.navigation-element{
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+article {
+	margin: 1.5em;
+}
+
+.article-title{
+	font-size: 20px;
+	margin-bottom: 0.4em;
+}
+
+.article-date{
+	font-size: 15px;
+	font-style: italic;
+	color: #999999;
+}
+
+.site-footer{
+	margin-top: 1em;
+	text-align: center;
+	border-top: solid 1px #999999;
+}
