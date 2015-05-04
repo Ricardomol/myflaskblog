@@ -31,7 +31,7 @@
     </div>
     {% for post in posts %}
       <article>
-        <div class="article-date">{{ moment(post.timestamp).format('LLL') }}</div>
+        <div class="article-date">{{ moment(post.timestamp).format('LL') }}</div>
         <div class="article-title"><a href="{{url_for("template_post", post_id=post.id)}}">{{ post.title }}</a></div>
         <!-- <div class="article-intro">{{ post.intro }}</div> -->
         {% if g.user.is_authenticated() %}
