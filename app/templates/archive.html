@@ -25,25 +25,26 @@
 
     <div class="content col-md-offset-2 col-md-8">
 
-    <div id="content"></div>
+      <div id="content"></div>
 
-    <div class="row search-row">
-      <div class="pull-right">
-        <div class="col-lg-12">
-          <input type="text" class="form-control" data-ng-model="searchTerm" placeholder="Search for..."/>
-        </div><!-- /.col-lg-6 -->
-      </div>
-    </div><!-- /.row -->
+      <div class="row search-row">
+        <div class="pull-right">
+          <div class="col-lg-12">
+            <input type="text" class="form-control" data-ng-model="searchTerm" placeholder="Search for..."/>
+          </div><!-- /.col-lg-6 -->
+        </div>
+      </div><!-- /.row -->
 
-    <article data-ng-repeat="article in articles  | filter: searchTerm">
-      <article >
-        <div class="article-date">[[ article.timestamp ]]</div>
-        <div class="article-title"><a href="/post/[[article.id]]">[[ article.title ]]</a></div>
-        <div class="article-intro">[[ article.intro ]]</div>
-    </article>
+      <article data-ng-repeat="article in articles | filter: searchTerm">
+          <div class="article-date">[[ article.timestamp ]]</div>
+          <div class="article-title"><a href="/post/[[article.id]]">[[ article.title ]]</a></div>
+          <div class="article-intro">[[ article.intro ]]</div>
+      </article>
+      <p class="article-title" ng-show="(articles | filter: searchTerm).length == 0">No results found.</p>
 
     </div>
   </div>
+  <div class="clearfix"></div>
 
 {% include "footer.html" %}
 

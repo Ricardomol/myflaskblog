@@ -1,6 +1,13 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
+  position: static;
 	font-size: 18px;
-    font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0 0 40px; /* bottom = footer height */
 }
 
 a:link {
@@ -76,10 +83,21 @@ article {
 	float:right;
 }
 
-.site-footer{
+/*.site-footer{
 	margin-top: 0.25em;
 	text-align: center;
 	border-top: solid 1px #CDCDCD;
+}*/
+
+.site-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    /* width: 100%; */
+    margin-top: 1em;
+    text-align: center;
+    border-top: solid 1px #999999;
 }
 
 /* Underline From Center */
